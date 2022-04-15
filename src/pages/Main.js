@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/common/Header";
+import Header from "../components/common/header";
 import MainRow1 from "../components/main/MainRow1";
 import Menu from "../components/main/Menu";
 import TodayStory from "../components/main/TodayStory";

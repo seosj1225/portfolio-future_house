@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../../images/logo.png";
-import { FiSearch } from "react-icons/fi";
-import { BsCart } from "react-icons/bs";
-import { MdOutlineKeyboardArrowDown, MdClear } from "react-icons/md";
+import Logo from "../../../images/logo.png";
 import { BiHomeAlt } from "react-icons/bi";
+import SubMenu1 from "./subMenu/SubMenu1";
+import SubMenu2 from "./subMenu/SubMenu2";
+import SubMenu3 from "./subMenu/SubMenu3";
+import SearchBox from "./SearchBox";
+import HeaderTopR from "./HeaderTopR";
 
 const depth2Menus = {
   menu1: ["홈", "팔로잉", "사진"],
@@ -15,7 +17,8 @@ const depth2Menus = {
 const searchList = ["검색1", "검색2"];
 
 const Header = () => {
-  const [depth1Hovered, setDepth1Hovered] = useState();
+  const [depth1Hovered, setDepth1Hovered] = useState(1);
+  const location = useLocation();
 
   return (
     <Wrapper>
@@ -28,127 +31,35 @@ const Header = () => {
           </h1>
           <div>
             <ul className="depth1">
-              <li
-                onMouseOver={() => setDepth1Hovered(1)}
-                onMouseOut={() => setDepth1Hovered(null)}
-              >
-                <Link to="#">커뮤니티</Link>
+              <li onMouseOver={() => setDepth1Hovered(1)}>
+                <Link to="/" className={location.pathname === "/" && "on"}>
+                  커뮤니티
+                </Link>
               </li>
-              <li
-                onMouseOver={() => setDepth1Hovered(2)}
-                onMouseOut={() => setDepth1Hovered(null)}
-              >
-                <Link to="#">스토어</Link>
+              <li onMouseOver={() => setDepth1Hovered(2)}>
+                <Link
+                  to="/detail"
+                  className={location.pathname === "/detail" && "on"}
+                >
+                  스토어
+                </Link>
               </li>
-              <li>
+              <li onMouseOver={() => setDepth1Hovered(3)}>
                 <Link to="#">인테리어시공</Link>
               </li>
             </ul>
           </div>
-          <form>
-            <div className="searchBox">
-              <FiSearch className="searchIcon" />
-              <input type="text" placeholder="내일의집 통합검색"></input>
-            </div>
-            {/* <ul>
-              {searchList.map((list) => (
-                <li>{list}</li>
-              ))}
-            </ul> */}
-            <div className="searchRecord1">
-              <div className="searchRecord2">
-                <span>최근 검색어</span>
-                <button>전체 삭제</button>
-              </div>
-              <div className="searchRecord3">
-                <div>1</div>
-                <div>
-                  <span>
-                    <MdClear />
-                  </span>
-                </div>
-              </div>
-              <div className="searchRecord3">
-                <div>2</div>
-                <div>
-                  <span>
-                    <MdClear />
-                  </span>
-                </div>
-              </div>
-              <div className="searchRecord3">
-                <div>3</div>
-                <div>
-                  <span>
-                    <MdClear />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </form>
-
-          <div className="headerTopR">
-            <Link to="#" className="cartLink">
-              <BsCart className="cartIcon" title="장바구니" />
-            </Link>
-            <ul className="headerTopR2">
-              <li>
-                <Link to="#">로그인</Link>
-              </li>
-              <li>
-                <Link to="#">회원가입</Link>
-              </li>
-              <li>
-                <Link to="#" className="headerTopR3">
-                  고객센터
-                </Link>
-              </li>
-            </ul>
-            <Link to="#" className="write">
-              <span>글쓰기</span>
-              <div className="writeIcon">
-                <MdOutlineKeyboardArrowDown />
-              </div>
-            </Link>
-          </div>
+          <SearchBox />
+          <HeaderTopR />
         </div>
       </div>
 
       <div className="row3">
         <div className="row4">
           <div className="depth2">
-            <ul>
-              <li>
-                <Link to="#">홈</Link>
-              </li>
-              <li>
-                <Link to="#">팔로잉</Link>
-              </li>
-              <li>
-                <Link to="#">사진</Link>
-              </li>
-              <li>
-                <Link to="#">집들이</Link>
-              </li>
-              <li>
-                <Link to="#">노하우</Link>
-              </li>
-              <li>
-                <Link to="#">전문가</Link>
-              </li>
-              <li>
-                <Link to="#">집들이</Link>
-              </li>
-              <li>
-                <Link to="#">셀프가이드</Link>
-              </li>
-              <li>
-                <Link to="#">질문과답변</Link>
-              </li>
-              <li>
-                <Link to="#">이벤트</Link>
-              </li>
-            </ul>
+            {depth1Hovered === 1 && <SubMenu1 />}
+            {depth1Hovered === 2 && <SubMenu2 />}
+            {depth1Hovered === 3 && <SubMenu3 />}
             {/* {depth1Hovered && (
               <ul>
                 {depth2Menus[`menu${depth1Hovered}`].map((menuName, index) => (
@@ -235,6 +146,7 @@ const Wrapper = styled.header`
           font-size: 20px;
           li {
             border-bottom: 1px solid red;
+            a.on,
             a:hover {
               color: #09addb;
             }

@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "../components/common/header";
 
 const Sub = () => {
-  return <div>sub</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
 export default Sub;
