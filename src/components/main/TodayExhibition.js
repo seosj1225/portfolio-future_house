@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
@@ -13,6 +13,29 @@ import exhibition_pic8 from "../../images/164941222305699843.jpg";
 import exhibition_pic9 from "../../images/164939764107357013.jpg";
 
 const TodayExhibition = () => {
+  const [exhibitionGroup, setExhibitionGroup] = useState(1);
+
+  // prev 버튼 클릭시 이전페이지 보여주기
+  const prevGroup = () => {
+    let num;
+    if (exhibitionGroup === 1) {
+      num = 3;
+    } else {
+      num = exhibitionGroup - 1;
+    }
+    setExhibitionGroup(num);
+  };
+  // next 버튼 클릭시 다음페이지 보여주기
+  const nextGroup = () => {
+    let num;
+    if (exhibitionGroup === 3) {
+      num = 1;
+    } else {
+      num = exhibitionGroup + 1;
+    }
+    setExhibitionGroup(num);
+  };
+
   return (
     <Wrapper>
       <section className="row1">
@@ -22,131 +45,150 @@ const TodayExhibition = () => {
         </header>
         <section className="exhibition_lists">
           <ul>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic1} alt="exhibition_pic1" />
-                </div>
-                <div className="exhibition_info">
-                  <p>가구부터 이불, 주방용품까지!</p>
-                  <p className="exhibition_info_title">
-                    봄맞이 초특가! 집 꾸미기 추천템 ~85&#37;
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic2} alt="exhibition_pic2" />
-                </div>
-                <div className="exhibition_info">
-                  <p>딱 일주일! #밀폐용기#수납#잡화 봄맞이 창고大개방</p>
-                  <p className="exhibition_info_title">
-                    &#91;선착순 쿠폰&#93; 봄맞이 주방 정리 기획전
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic3} alt="exhibition_pic3" />
-                </div>
-                <div className="exhibition_info">
-                  <p>반려동물 봄맞이 새단장 필수템</p>
-                  <p className="exhibition_info_title">
-                    CAT&#38;DOG SPRING SALE UP TO 61&#37;
-                  </p>
-                </div>
-              </Link>
-            </li>
-            {/* <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic4} alt="exhibition_pic4" />
-                </div>
-                <div className="exhibition_info">
-                  <p>인기가구! 선착순 100개 특가</p>
-                  <p className="exhibition_info_title">
-                    봄맞이 리바트 브랜드위크 ~62&#37;
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic5} alt="exhibition_pic5" />
-                </div>
-                <div className="exhibition_info">
-                  <p>재택근무&#38;온라인수업을 위한 꿀템</p>
-                  <p className="exhibition_info_title">
-                    &#91;&#91;20&#37; 쿠폰&#93; 스마트 홈오피스 ~40&#37;
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic6} alt="exhibition_pic6" />
-                </div>
-                <div className="exhibition_info">
-                  <p>인기브랜드의 특별한 콜라보!</p>
-                  <p className="exhibition_info_title">
-                    LG전자X까사미아 홈인테리어 ~69&#37;
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic7} alt="exhibition_pic7" />
-                </div>
-                <div className="exhibition_info">
-                  <p>스타일리쉬한 가전을 다양한 혜택으로 만나보세요!</p>
-                  <p className="exhibition_info_title">
-                    삼성 BESPOKE 혼수마련 대축제
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic8} alt="exhibition_pic8" />
-                </div>
-                <div className="exhibition_info">
-                  <p>진열/반품/스크래치 가구 가전 초특가</p>
-                  <p className="exhibition_info_title">
-                    &#91;리퍼마켓&#93; 어제는 정상가, 오늘은 반값!
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="#">
-                <div className="exhibition_pics">
-                  <img src={exhibition_pic9} alt="exhibition_pic9" />
-                </div>
-                <div className="exhibition_info">
-                  <p>론칭기념 일주일간 단독 특가 ~4/17</p>
-                  <p className="exhibition_info_title">
-                    딩동- 입점했어요! 이번주 신규 브랜드
-                  </p>
-                </div>
-              </Link>
-            </li> */}
+            {/* exhibitionGroup 변수가 1 일때 해당 태그내용이 보임 */}
+            {exhibitionGroup === 1 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic1} alt="exhibition_pic1" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>가구부터 이불, 주방용품까지!</p>
+                    <p className="exhibition_info_title">
+                      봄맞이 초특가! 집 꾸미기 추천템 ~85&#37;
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 1 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic2} alt="exhibition_pic2" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>딱 일주일! #밀폐용기#수납#잡화 봄맞이 창고大개방</p>
+                    <p className="exhibition_info_title">
+                      &#91;선착순 쿠폰&#93; 봄맞이 주방 정리 기획전
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 1 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic3} alt="exhibition_pic3" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>반려동물 봄맞이 새단장 필수템</p>
+                    <p className="exhibition_info_title">
+                      CAT&#38;DOG SPRING SALE UP TO 61&#37;
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 2 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic4} alt="exhibition_pic4" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>인기가구! 선착순 100개 특가</p>
+                    <p className="exhibition_info_title">
+                      봄맞이 리바트 브랜드위크 ~62&#37;
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 2 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic5} alt="exhibition_pic5" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>재택근무&#38;온라인수업을 위한 꿀템</p>
+                    <p className="exhibition_info_title">
+                      &#91;&#91;20&#37; 쿠폰&#93; 스마트 홈오피스 ~40&#37;
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 2 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic6} alt="exhibition_pic6" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>인기브랜드의 특별한 콜라보!</p>
+                    <p className="exhibition_info_title">
+                      LG전자X까사미아 홈인테리어 ~69&#37;
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 3 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic7} alt="exhibition_pic7" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>스타일리쉬한 가전을 다양한 혜택으로 만나보세요!</p>
+                    <p className="exhibition_info_title">
+                      삼성 BESPOKE 혼수마련 대축제
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 3 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic8} alt="exhibition_pic8" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>진열/반품/스크래치 가구 가전 초특가</p>
+                    <p className="exhibition_info_title">
+                      &#91;리퍼마켓&#93; 어제는 정상가, 오늘은 반값!
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {exhibitionGroup === 3 && (
+              <li>
+                <Link to="#">
+                  <div className="exhibition_pics">
+                    <img src={exhibition_pic9} alt="exhibition_pic9" />
+                  </div>
+                  <div className="exhibition_info">
+                    <p>론칭기념 일주일간 단독 특가 ~4/17</p>
+                    <p className="exhibition_info_title">
+                      딩동- 입점했어요! 이번주 신규 브랜드
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )}
           </ul>
         </section>
-        <button className="list_prev">
+        <button className="list_prev" onClick={prevGroup}>
           <span>
             <MdArrowBackIosNew />
           </span>
         </button>
-        <button className="list_next">
+        <button className="list_next" onClick={nextGroup}>
           <span>
             <MdArrowForwardIos />
           </span>

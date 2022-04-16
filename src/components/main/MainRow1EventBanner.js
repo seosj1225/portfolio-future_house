@@ -38,7 +38,7 @@ const MainRow1EventBanner = () => {
   };
 
   return (
-    <Wrapper className="Btn3">
+    <Wrapper>
       <div className="Btn9">
         <div className="Img2">
           <Link to="#" className="banner">
@@ -103,6 +103,87 @@ const MainRow1EventBanner = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  @font-face {
+    font-family: "EliceDigitalBaeum-Bd";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  &:hover {
+    .Event1 {
+      transition: 0.3s;
+      transform: scale(1.05);
+    }
+    .Btn9 {
+      button {
+        display: block;
+      }
+    }
+  }
+
+  .Btn9 {
+    position: relative;
+    .Img2 {
+      position: relative;
+      overflow: hidden;
+      height: 565px;
+      border-radius: 5px;
+      width: 289px;
+      a.banner {
+        width: inherit;
+        height: inherit;
+
+        .Event1 {
+          width: inherit;
+          height: inherit;
+        }
+      }
+      .Btn4 {
+        font-family: "EliceDigitalBaeum-Bd";
+        font-size: 13px;
+        font-weight: bold;
+        color: #fff;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        .Btn5 {
+          background-color: rgba(33, 38, 41, 0.5);
+          display: flex;
+          margin: 15px;
+          padding: 6px 10px 6px 12px;
+          border-radius: 50px;
+          li {
+            padding: 0;
+          }
+        }
+      }
+    }
+    button {
+      cursor: pointer;
+      display: none;
+      background-color: #fff;
+      line-height: 45px;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .Btn6 {
+      position: absolute;
+      top: 45%;
+      left: -20px;
+    }
+    .Btn7 {
+      position: absolute;
+      top: 45%;
+      right: -20px;
+    }
+  }
+`;
 
 export default MainRow1EventBanner;
