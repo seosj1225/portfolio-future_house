@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import item1 from "../../images/164333421927911367.png";
@@ -18,8 +18,29 @@ import item14 from "../../images/162823242317048198.png";
 import item15 from "../../images/162823231949249287.png";
 import item16 from "../../images/164148743817769527.png";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+// import TodayExhibition from "./TodayExhibition";
 
 const Categories = () => {
+  const [categoryGroup, setCategoryGroup] = useState(3);
+
+  const prevGroup = () => {
+    let num;
+    if (categoryGroup === 1) {
+      num = 3;
+    } else {
+      num = categoryGroup - 1;
+    }
+    setCategoryGroup(num);
+  };
+  const nextGroup = () => {
+    let num;
+    if (categoryGroup === 3) {
+      num = 1;
+    } else {
+      num = categoryGroup + 1;
+    }
+    setCategoryGroup(num);
+  };
   return (
     <Wrapper>
       <section className="row1">
@@ -29,42 +50,54 @@ const Categories = () => {
         <section>
           <div>
             <ul>
-              <li>
-                <Link to="#">
-                  <img src={item1} />
-                  <p>가구</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item2} />
-                  <p>패트릭</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item3} />
-                  <p>조명</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item4} />
-                  <p>가전</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item5} />
-                  <p>주방용품</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item6} />
-                  <p>데코/식물</p>
-                </Link>
-              </li>
+              {categoryGroup === 1 && (
+                <li>
+                  <Link to="#">
+                    <img src={item1} />
+                    <p>가구</p>
+                  </Link>
+                </li>
+              )}
+              {categoryGroup === 1 && (
+                <li>
+                  <Link to="#">
+                    <img src={item2} />
+                    <p>패트릭</p>
+                  </Link>
+                </li>
+              )}
+              {categoryGroup === 1 && (
+                <li>
+                  <Link to="#">
+                    <img src={item3} />
+                    <p>조명</p>
+                  </Link>
+                </li>
+              )}
+              {categoryGroup === 1 && (
+                <li>
+                  <Link to="#">
+                    <img src={item4} />
+                    <p>가전</p>
+                  </Link>
+                </li>
+              )}
+              {categoryGroup === 1 && (
+                <li>
+                  <Link to="#">
+                    <img src={item5} />
+                    <p>주방용품</p>
+                  </Link>
+                </li>
+              )}
+              {(categoryGroup === 1 || categoryGroup === 2) && (
+                <li>
+                  <Link to="#">
+                    <img src={item6} />
+                    <p>데코/식물</p>
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link to="#">
                   <img src={item7} />
@@ -89,50 +122,62 @@ const Categories = () => {
                   <p>생필품</p>
                 </Link>
               </li>
-              {/* <li>
-                <Link to="#">
-                  <img src={item11} />
-                  <p>공구/DIY</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item12} />
-                  <p>인테리어시공</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item13} />
-                  <p>반려동물</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item14} />
-                  <p>캠핑용품</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item15} />
-                  <p>실내운동</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="#">
-                  <img src={item16} />
-                  <p>렌탈</p>
-                </Link>
-              </li> */}
+              {(categoryGroup === 2 || categoryGroup === 3) && (
+                <li>
+                  <Link to="#">
+                    <img src={item11} />
+                    <p>공구/DIY</p>
+                  </Link>
+                </li>
+              )}
+              {(categoryGroup === 2 || categoryGroup === 3) && (
+                <li>
+                  <Link to="#">
+                    <img src={item12} />
+                    <p>인테리어시공</p>
+                  </Link>
+                </li>
+              )}
+              {(categoryGroup === 2 || categoryGroup === 3) && (
+                <li>
+                  <Link to="#">
+                    <img src={item13} />
+                    <p>반려동물</p>
+                  </Link>
+                </li>
+              )}
+              {(categoryGroup === 2 || categoryGroup === 3) && (
+                <li>
+                  <Link to="#">
+                    <img src={item14} />
+                    <p>캠핑용품</p>
+                  </Link>
+                </li>
+              )}
+              {(categoryGroup === 2 || categoryGroup === 3) && (
+                <li>
+                  <Link to="#">
+                    <img src={item15} />
+                    <p>실내운동</p>
+                  </Link>
+                </li>
+              )}
+              {categoryGroup === 3 && (
+                <li>
+                  <Link to="#">
+                    <img src={item16} />
+                    <p>렌탈</p>
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
-          <div className="categoryListPrev">
+          <div className="categoryListPrev" onClick={prevGroup}>
             <button>
               <MdArrowBackIosNew />
             </button>
           </div>
-          <div className="categoryListNext">
+          <div className="categoryListNext" onClick={nextGroup}>
             <button>
               <MdArrowForwardIos />
             </button>
