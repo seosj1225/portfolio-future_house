@@ -9,13 +9,6 @@ import SubMenu3 from "./subMenu/SubMenu3";
 import SearchBox from "./SearchBox";
 import HeaderTopR from "./HeaderTopR";
 
-const depth2Menus = {
-  menu1: ["홈", "팔로잉", "사진"],
-  menu2: ["메뉴1", "메뉴2", "메뉴3"],
-};
-
-const searchList = ["검색1", "검색2"];
-
 const Header = () => {
   const [depth1Hovered, setDepth1Hovered] = useState(1);
   const location = useLocation();
@@ -32,14 +25,14 @@ const Header = () => {
           <div>
             <ul className="depth1">
               <li onMouseOver={() => setDepth1Hovered(1)}>
-                <Link to="/" className={location.pathname === "/" && "on"}>
+                <Link to="/" className={location?.pathname === "/" && "on"}>
                   커뮤니티
                 </Link>
               </li>
               <li onMouseOver={() => setDepth1Hovered(2)}>
                 <Link
                   to="/detail"
-                  className={location.pathname === "/detail" && "on"}
+                  className={location?.pathname === "/detail" && "on"}
                 >
                   스토어
                 </Link>
@@ -58,29 +51,9 @@ const Header = () => {
         <div className="row4">
           <div className="depth2">
             {depth1Hovered === 1 && <SubMenu1 />}
+            {/* depth1Hovered이 1일때 subMenu1이 보임(호버) */}
             {depth1Hovered === 2 && <SubMenu2 />}
             {depth1Hovered === 3 && <SubMenu3 />}
-            {/* {depth1Hovered && (
-              <ul>
-                {depth2Menus[`menu${depth1Hovered}`].map((menuName, index) => (
-                  <li key={index}>{menuName}</li>
-                ))}
-              </ul>
-            )} */}
-            {/* {depth1Hovered === 0 && (
-          <ul>
-            <li>홈</li>
-            <li>팔로잉</li>
-            <li>사진</li>
-          </ul>
-        )}
-        {depth1Hovered === 1 && (
-          <ul>
-            <li>스토어홈</li>
-            <li>카테고리</li>
-            <li>베스트</li>
-          </ul>
-        )} */}
           </div>
           <div className="Beta3D">
             <Link to="#">

@@ -1,39 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const menuList = [
+  { name: "홈", id: 1, url: "/" },
+  { name: "팔로잉", id: 1 },
+  { name: "사진", id: 1 },
+  { name: "집들이", id: 1 },
+  { name: "노하우", id: 1 },
+  { name: "전문가", id: 1 },
+  { name: "집들이", id: 1 },
+  { name: "셀프가이드", id: 1 },
+  { name: "질문과답변", id: 1 },
+  { name: "이벤트", id: 1 },
+];
+
 const SubMenu1 = () => {
   return (
     <ul>
-      <li>
-        <Link to="#">홈</Link>
-      </li>
-      <li>
-        <Link to="#">팔로잉</Link>
-      </li>
-      <li>
-        <Link to="#">사진</Link>
-      </li>
-      <li>
-        <Link to="#">집들이</Link>
-      </li>
-      <li>
-        <Link to="#">노하우</Link>
-      </li>
-      <li>
-        <Link to="#">전문가</Link>
-      </li>
-      <li>
-        <Link to="#">집들이</Link>
-      </li>
-      <li>
-        <Link to="#">셀프가이드</Link>
-      </li>
-      <li>
-        <Link to="#">질문과답변</Link>
-      </li>
-      <li>
-        <Link to="#">이벤트</Link>
-      </li>
+      {menuList.map((menu) => (
+        <li>
+          <Link to={menu.url ?? "/"}>{menu.name}</Link>
+        </li>
+      ))}
     </ul>
   );
 };

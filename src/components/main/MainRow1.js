@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Room1 from "../../images/164904616233231814.jpg";
 import Id1 from "../../images/164715616632471555.jpg";
-import Event1 from "../../images/sign_up_web_v2.jpg";
-import { GoPlus } from "react-icons/go";
-import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import MainRow1EventBanner from "./MainRow1EventBanner";
 
 const MainRow1 = () => {
   return (
@@ -34,29 +32,7 @@ const MainRow1 = () => {
           </Link>
         </li>
         <li>
-          <Link to="#" className="Btn3">
-            <div className="Btn9">
-              <div className="Img2">
-                <img src={Event1} className="Event1" alt="이벤트" />
-                <div className="Btn4">
-                  <ul className="Btn5">
-                    <li>
-                      <span>1/13</span>
-                    </li>
-                    <li>
-                      <GoPlus className="Btn4Icon" />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <button className="Btn6">
-                <MdArrowBackIosNew className="Btn8" />
-              </button>
-              <button className="Btn7">
-                <MdArrowForwardIos className="Btn8" />
-              </button>
-            </div>
-          </Link>
+          <MainRow1EventBanner />
         </li>
       </ul>
     </Wrapper>
@@ -188,9 +164,14 @@ const Wrapper = styled.div`
             height: 565px;
             border-radius: 5px;
             width: 289px;
-            .Event1 {
+            a.banner {
               width: inherit;
               height: inherit;
+
+              .Event1 {
+                width: inherit;
+                height: inherit;
+              }
             }
             .Btn4 {
               font-family: "EliceDigitalBaeum-Bd";
