@@ -5,13 +5,10 @@ import Sub from "./pages/Sub";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/detail" element={<Sub />} />
-        {/* <Route path="/" element={<App />}>
-          <Route index element={<Main />} />
-        </Route> */}
       </Routes>
     </BrowserRouter>
   );

@@ -23,6 +23,7 @@ import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 const Categories = () => {
   const [categoryGroup, setCategoryGroup] = useState(3);
 
+  // prev 버튼 클릭시 이전페이지 보여주기
   const prevGroup = () => {
     let num;
     if (categoryGroup === 1) {
@@ -32,6 +33,8 @@ const Categories = () => {
     }
     setCategoryGroup(num);
   };
+
+  // next 버튼 클릭시 다음페이지 보여주기
   const nextGroup = () => {
     let num;
     if (categoryGroup === 3) {
