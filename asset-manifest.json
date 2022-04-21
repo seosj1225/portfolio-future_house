@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/portfolio-future_house/static/css/main.afa434a8.css",
+    "main.js": "/portfolio-future_house/static/js/main.2052df3d.js",
+    "static/js/787.0df7b363.chunk.js": "/portfolio-future_house/static/js/787.0df7b363.chunk.js",
+    "static/media/gif": "/portfolio-future_house/static/media/162813001662993357.eeb06f85dcf48a49d96d.gif",
+    "static/media/sign_up_web (5).jpg": "/portfolio-future_house/static/media/sign_up_web (5).626cd330404d78bc77cf.jpg",
+    "static/media/jpg": "/portfolio-future_house/static/media/164860698691467627.6a2a70e535cc5d22a174.jpg",
+    "static/media/sign_up_web (7).jpg": "/portfolio-future_house/static/media/sign_up_web (7).d6459268edcaa4251b02.jpg",
+    "static/media/sign_up_web (8).jpg": "/portfolio-future_house/static/media/sign_up_web (8).0f879ddd0df42a73d7b8.jpg",
+    "static/media/sign_up_web (2).jpg": "/portfolio-future_house/static/media/sign_up_web (2).97ab14aae384bf7c822d.jpg",
+    "static/media/sign_up_web (6).jpg": "/portfolio-future_house/static/media/sign_up_web (6).f6e0d12516c1f9b3c4aa.jpg",
+    "static/media/sign_up_web (3).jpg": "/portfolio-future_house/static/media/sign_up_web (3).2d1438ae955e5aba4c7f.jpg",
+    "static/media/sign_up_web (1).jpg": "/portfolio-future_house/static/media/sign_up_web (1).66dbe7d2884171f350f9.jpg",
+    "static/media/sign_up_web (4).jpg": "/portfolio-future_house/static/media/sign_up_web (4).4dfc93243f557b9de958.jpg",
+    "static/media/none(5).png": "/portfolio-future_house/static/media/none(5).7a88f44e289589331552.png",
+    "static/media/png": "/portfolio-future_house/static/media/162823226017937426.597633e823dd6e6e748e.png",
+    "static/media/1554432441250_K6wX5dopzz.jpg": "/portfolio-future_house/static/media/1554432441250_K6wX5dopzz.66225da1b6621ae03721.jpg",
+    "static/media/none(4).png": "/portfolio-future_house/static/media/none(4).f7cf1bd759177fb79c69.png",
+    "static/media/none(3).png": "/portfolio-future_house/static/media/none(3).e9979732b06486ecb43c.png",
+    "static/media/none(1).png": "/portfolio-future_house/static/media/none(1).5201ce8894852dff2a41.png",
+    "index.html": "/portfolio-future_house/index.html",
+    "main.afa434a8.css.map": "/portfolio-future_house/static/css/main.afa434a8.css.map",
+    "main.2052df3d.js.map": "/portfolio-future_house/static/js/main.2052df3d.js.map",
+    "787.0df7b363.chunk.js.map": "/portfolio-future_house/static/js/787.0df7b363.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.afa434a8.css",
+    "static/js/main.2052df3d.js"
+  ]
+}
